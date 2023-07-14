@@ -1,7 +1,10 @@
 package furniture.ecommerce.furnitureecommerce.data.model;
 
+import furniture.ecommerce.furnitureecommerce.data.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,4 +31,7 @@ public class AppUser {
 	private String phoneNumber;
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Address addressDetails;
+	@Enumerated(EnumType.STRING)
+	private List<Role> roles;
+	private boolean enabled;
 }
