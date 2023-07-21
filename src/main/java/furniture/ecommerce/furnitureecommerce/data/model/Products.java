@@ -33,6 +33,5 @@ public class Products {
 	private Type sizeType;
 	@Enumerated(EnumType.STRING)
 	private Color colorType;
-	@Transient
-	private MultipartFile pictures;
+	private String pictures;
 }

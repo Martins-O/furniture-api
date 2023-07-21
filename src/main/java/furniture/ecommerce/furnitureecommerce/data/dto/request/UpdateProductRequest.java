@@ -2,7 +2,6 @@ package furniture.ecommerce.furnitureecommerce.data.dto.request;
 
 import furniture.ecommerce.furnitureecommerce.data.enums.Color;
 import furniture.ecommerce.furnitureecommerce.data.enums.Type;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,12 +14,9 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductRequest {
-	@NotNull(message = "price field is required")
+public class UpdateProductRequest {
 	private BigDecimal price;
-	@NotNull(message = "Please provide more information about the product")
 	private String description;
-	@NotNull(message = "Please name the product")
 	private String name;
 	private Type sizeType;
 	private Color colorType;
