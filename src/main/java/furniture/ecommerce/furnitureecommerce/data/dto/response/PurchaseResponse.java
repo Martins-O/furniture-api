@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ApiResponse {
+public class PurchaseResponse {
 	private Object data;
 	private HttpStatus httpStatus;
 	private int statusCode;

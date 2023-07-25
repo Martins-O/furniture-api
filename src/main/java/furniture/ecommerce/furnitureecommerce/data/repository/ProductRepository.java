@@ -1,12 +1,15 @@
 package furniture.ecommerce.furnitureecommerce.data.repository;
 
-import furniture.ecommerce.furnitureecommerce.data.model.Products;
+import furniture.ecommerce.furnitureecommerce.data.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.math.BigDecimal;
 
-public interface ProductRepository extends JpaRepository<Products, Long> {
-	Products findProductByName(String name);
+public interface ProductRepository extends JpaRepository<Product, Long> {
+	Product findProductByName(String name);
 	
-	Products findProductByPrice(BigDecimal price);
+	Product findProductByPrice(BigDecimal price);
+	
+	Product findProductById(Long productId);
+	
 }

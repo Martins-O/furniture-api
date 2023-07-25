@@ -1,12 +1,13 @@
 package furniture.ecommerce.furnitureecommerce.data.model;
 
 import furniture.ecommerce.furnitureecommerce.data.enums.Color;
+import furniture.ecommerce.furnitureecommerce.data.enums.Rating;
 import furniture.ecommerce.furnitureecommerce.data.enums.Type;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
 @Builder
 @Entity
 @Table(name = "products")
-public class Products {
+public class Product {
 	@Id
 	@SequenceGenerator(
 			name = "id",
@@ -32,6 +33,9 @@ public class Products {
 	@Enumerated(EnumType.STRING)
 	private Type sizeType;
 	@Enumerated(EnumType.STRING)
-	private Color colorType;
+	private List<Color> colorType;
 	private String pictures;
+	private int quantity;
+	@Enumerated(EnumType.STRING)
+	private Rating productRating;
 }

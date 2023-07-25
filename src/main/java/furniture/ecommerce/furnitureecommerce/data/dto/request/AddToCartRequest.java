@@ -1,7 +1,7 @@
 package furniture.ecommerce.furnitureecommerce.data.dto.request;
 
 import furniture.ecommerce.furnitureecommerce.data.model.AppUser;
-import furniture.ecommerce.furnitureecommerce.data.model.Products;
+import furniture.ecommerce.furnitureecommerce.data.model.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 public class AddToCartRequest {
 	private List<AppUser> userOrder;
-	private List<Products> products;
+	private List<Product> products;
 	private int quantity;
 }

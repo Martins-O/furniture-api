@@ -23,8 +23,10 @@ public class Reviewers {
 			generator = "review_id"
 	)
 	private Long id;
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private AppUser reviewerDetails;
+//	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private AppUser reviewerDetails;
+	private String name;
+	private String email;
 	private String reviews;
 	@Enumerated(EnumType.STRING)
 	private Rating starRating;

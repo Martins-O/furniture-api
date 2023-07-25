@@ -4,4 +4,5 @@ public enum Type {
 	LONG,
 	SHORT,
 	MEDIUM,
+	ROUND
 }

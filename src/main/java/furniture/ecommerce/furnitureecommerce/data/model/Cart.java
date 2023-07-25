@@ -24,19 +24,19 @@ public class Cart {
 	)
 	private Long Id;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.REMOVE, CascadeType.PERSIST})
-	@JoinTable(
-			name = "orders",
-			joinColumns = @JoinColumn(name = "orders_id"),
-			inverseJoinColumns = @JoinColumn(name = "orders_id")
-	)
+//	@JoinTable(
+//			name = "orders",
+//			joinColumns = @JoinColumn(name = "orders_id"),
+//			inverseJoinColumns = @JoinColumn(name = "orders_id")
+//	)
 	private List<AppUser> userOrder;
 	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.REMOVE, CascadeType.PERSIST})
-	@JoinTable(
-			name = "product",
-			joinColumns = @JoinColumn(name = "product_id"),
-			inverseJoinColumns = @JoinColumn(name = "product_id")
-	)
-	private List<Products> products;
+//	@JoinTable(
+//			name = "product",
+//			joinColumns = @JoinColumn(name = "product_id"),
+//			inverseJoinColumns = @JoinColumn(name = "product_id")
+//	)
+	private List<Product> products;
 	private int quantity;
 
 }
