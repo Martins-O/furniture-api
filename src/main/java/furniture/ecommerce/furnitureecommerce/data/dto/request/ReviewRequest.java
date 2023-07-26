@@ -1,8 +1,6 @@
 package furniture.ecommerce.furnitureecommerce.data.dto.request;
 
 import furniture.ecommerce.furnitureecommerce.data.enums.Rating;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
