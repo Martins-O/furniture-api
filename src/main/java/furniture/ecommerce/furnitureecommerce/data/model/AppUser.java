@@ -42,4 +42,6 @@ public class AppUser {
 	private boolean enabled;
 	@CreatedDate
 	private LocalDateTime createdAt;
+	private String discountPercent;
+	private boolean voucherEnabled;
 }

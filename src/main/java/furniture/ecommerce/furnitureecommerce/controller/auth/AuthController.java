@@ -19,7 +19,7 @@ public class AuthController {
 	
 	private final AuthService service;
 	
-	@PostMapping("register")
+	@PostMapping()
 	public ResponseEntity<ApiResponse> register(@Valid @RequestBody RegisterRequest request){
 		return new ResponseEntity<>(service.signUp (request),
 				HttpStatus.CREATED);
