@@ -15,7 +15,7 @@ import java.util.Date;
 
 @Component
 public class JwtGenerator {
-    SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+    static SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
     public String generateToken(Authentication authentication, Long expiration) {
         SecureUser authenticatedUser = (SecureUser) authentication.getPrincipal();
@@ -43,6 +43,14 @@ public class JwtGenerator {
                 .getBody();
 
         return claims.getSubject();
+    }
+    
+    public static String generateVerificationToken() {
+        return Jwts.builder()
+                .setIssuer("CLM")
+                .signWith(key)
+                .setIssuedAt(new Date())
+                .compact();
     }
 
     public boolean validateToken(String token) {
