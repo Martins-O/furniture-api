@@ -1,5 +1,6 @@
 package furniture.ecommerce.furnitureecommerce.utils;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +19,7 @@ public class EncryptionUtils {
     private String ENCRYPTION_KEY;
 
     public EncryptionUtils() {
-        Security.addProvider(new BouncyCastleProvider());
+        Security.addProvider(new BouncyCastleProvider ());
     }
 
     public String encrypt(String plainText) {

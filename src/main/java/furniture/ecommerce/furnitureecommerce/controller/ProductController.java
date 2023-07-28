@@ -29,9 +29,8 @@ public class ProductController {
 	@PutMapping("{productId}")
 	public ResponseEntity<ApiResponse> updateProduct(@PathVariable("productId") Long productId, @RequestBody UpdateProductRequest request){
 		var response = service.updateProduct (productId, request);
-		var result = new ResponseEntity<> (response,
+		return new ResponseEntity<> (response,
 				HttpStatus.ACCEPTED);
-		return result;
 	}
 	
 	@GetMapping
