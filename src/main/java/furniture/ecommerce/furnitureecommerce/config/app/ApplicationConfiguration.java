@@ -3,13 +3,18 @@ package furniture.ecommerce.furnitureecommerce.config.app;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import furniture.ecommerce.furnitureecommerce.config.mail.MailConfiguration;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
+@RequiredArgsConstructor
 public class ApplicationConfiguration {
 	
 	
@@ -24,6 +29,9 @@ public class ApplicationConfiguration {
 	private String mailApiKey;
 	@Value("${sendinblue.mail.url}")
 	private String mailUrl;
+ 
+	
+	
 	
 	
 	@Bean
@@ -41,6 +49,8 @@ public class ApplicationConfiguration {
 				)
 		);
 	}
+	
+
 	
 	@Bean
 	public PasswordEncoder passwordEncoder(){

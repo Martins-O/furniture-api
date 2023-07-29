@@ -7,9 +7,9 @@ import furniture.ecommerce.furnitureecommerce.data.model.Cart;
 
 public interface CartService {
 	
-	ApiResponse addToCart(AddToCartRequest request);
+//	ApiResponse addToCart(AddToCartRequest request);
 	
-	PurchaseResponse purchase();
+//	PurchaseResponse purchase();
 	
 	void deleteCart(Cart cart);
 }
