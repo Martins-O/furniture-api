@@ -1,9 +1,7 @@
 package furniture.ecommerce.furnitureecommerce.service.implementation;
 
-import furniture.ecommerce.furnitureecommerce.data.dto.request.AddToCartRequest;
 import furniture.ecommerce.furnitureecommerce.data.dto.request.CartItemsDto;
 import furniture.ecommerce.furnitureecommerce.data.dto.response.ApiResponse;
-import furniture.ecommerce.furnitureecommerce.data.dto.response.PurchaseResponse;
 import furniture.ecommerce.furnitureecommerce.data.model.AppUser;
 import furniture.ecommerce.furnitureecommerce.data.model.Cart;
 import furniture.ecommerce.furnitureecommerce.data.model.CartItem;
