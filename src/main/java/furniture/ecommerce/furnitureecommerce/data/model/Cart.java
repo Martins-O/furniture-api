@@ -23,20 +23,7 @@ public class Cart {
 			generator = "carts_id"
 	)
 	private Long Id;
-	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.REMOVE, CascadeType.PERSIST})
-//	@JoinTable(
-//			name = "orders",
-//			joinColumns = @JoinColumn(name = "orders_id"),
-//			inverseJoinColumns = @JoinColumn(name = "orders_id")
-//	)
-	private List<AppUser> userOrder;
-	@ManyToMany(fetch = FetchType.EAGER, cascade = { CascadeType.REMOVE, CascadeType.PERSIST})
-//	@JoinTable(
-//			name = "product",
-//			joinColumns = @JoinColumn(name = "product_id"),
-//			inverseJoinColumns = @JoinColumn(name = "product_id")
-//	)
-	private List<Product> products;
-	private int quantity;
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+	private List<CartItem> cartItems;
 
 }

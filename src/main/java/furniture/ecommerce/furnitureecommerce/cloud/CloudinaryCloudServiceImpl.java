@@ -5,6 +5,7 @@ import com.cloudinary.utils.ObjectUtils;
 import furniture.ecommerce.furnitureecommerce.exception.ImageUploadException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +26,7 @@ public class CloudinaryCloudServiceImpl implements CloudService{
                     cloudinary.uploader().upload(image.getBytes(), ObjectUtils.emptyMap());
             return response.get("url").toString();
         } catch (IOException e) {
-            throw new ImageUploadException (e.getMessage());
+            throw new ImageUploadException (e.getMessage(), HttpStatus.NO_CONTENT);
         }
     }
 }

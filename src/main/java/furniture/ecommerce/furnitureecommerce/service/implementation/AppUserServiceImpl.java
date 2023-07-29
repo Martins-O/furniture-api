@@ -9,6 +9,7 @@ import furniture.ecommerce.furnitureecommerce.service.interfaces.AppUserService;
 import furniture.ecommerce.furnitureecommerce.utils.ApplicationUtilities;
 import furniture.ecommerce.furnitureecommerce.utils.Responses;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -34,7 +35,8 @@ public class AppUserServiceImpl implements AppUserService {
 	public ApiResponse verifyAccount(Long userId, String token){
 		if (ApplicationUtilities.isValidToken(token)) return getVerifiedResponse (userId);
 		throw new FurnitureException (
-				ACC_VERIFY_FAILURE+userId
+				ACC_VERIFY_FAILURE+userId,
+				HttpStatus.BAD_REQUEST
 		);
 	}
 	
@@ -46,7 +48,7 @@ public class AppUserServiceImpl implements AppUserService {
 	private ApiResponse getVerifiedResponse(Long userId) {
 		Optional<AppUser> foundUser = repository.findById (userId);
 		if (foundUser.isEmpty ()){
-			throw new UserNotFoundException (USER_NOT_FOUND);
+			throw new UserNotFoundException (USER_NOT_FOUND, HttpStatus.NOT_FOUND);
 		}
 		foundUser.ifPresent (this::enableAppUserAccount);
 		return Responses.okResponse (foundUser);

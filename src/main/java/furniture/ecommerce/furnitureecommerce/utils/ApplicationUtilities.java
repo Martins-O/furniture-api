@@ -5,6 +5,7 @@ import furniture.ecommerce.furnitureecommerce.data.dto.request.EmailNotification
 import furniture.ecommerce.furnitureecommerce.data.dto.request.Recipient;
 import furniture.ecommerce.furnitureecommerce.exception.FurnitureException;
 import io.jsonwebtoken.Jwts;
+import org.springframework.http.HttpStatus;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -22,7 +23,7 @@ public class ApplicationUtilities {
 				WELCOME_MAIL_TEMPLATE_LOCATION))){
 			return reader.lines().collect(Collectors.joining());
 		}catch (IOException exception){
-			throw new FurnitureException (exception.getMessage());
+			throw new FurnitureException (exception.getMessage(), HttpStatus.NO_CONTENT);
 		}
 	}
 	

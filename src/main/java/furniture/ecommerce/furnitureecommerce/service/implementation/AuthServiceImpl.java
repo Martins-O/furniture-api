@@ -13,6 +13,7 @@ import furniture.ecommerce.furnitureecommerce.exception.UserAlreadyExistsExcepti
 import furniture.ecommerce.furnitureecommerce.service.interfaces.AppUserService;
 import furniture.ecommerce.furnitureecommerce.service.interfaces.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -38,7 +39,7 @@ public class AuthServiceImpl implements AuthService {
 	public ApiResponse signUp(RegisterRequest request) {
 		AppUser findUser = service.getUserByEmail (request.getEmail ());
 		if (findUser != null) {
-			throw new UserAlreadyExistsException (EMAIL_ALREADY_EXIST);
+			throw new UserAlreadyExistsException (EMAIL_ALREADY_EXIST, HttpStatus.BAD_REQUEST);
 		}
 		AppUser createUser = AppUser.builder ()
 				.lastName (request.getLastName ())
@@ -74,7 +75,7 @@ public class AuthServiceImpl implements AuthService {
 			String refreshToken = generator.generateToken (authentication, Long.valueOf (604800000));
 			return getLoginResponse (token, refreshToken);
 		}catch (Exception e){
-			throw new LoginFailureException (LOGIN_FAIL);
+			throw new LoginFailureException (LOGIN_FAIL, HttpStatus.BAD_REQUEST);
 		}
 	}
 }
