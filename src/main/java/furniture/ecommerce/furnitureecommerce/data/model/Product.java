@@ -35,7 +35,7 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	private List<Color> colorType;
 	private String pictures;
-	private int quantity;
+	private Integer quantity;
 	@Enumerated(EnumType.STRING)
 	private Rating productRating;
 }

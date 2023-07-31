@@ -3,6 +3,7 @@ package furniture.ecommerce.furnitureecommerce.data.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @AllArgsConstructor
@@ -40,4 +41,5 @@ public class CartItem {
 	@JoinColumn(name = "cart_id")
 	private Cart cart;
 	private int quantity;
+	private BigDecimal price;
 }
